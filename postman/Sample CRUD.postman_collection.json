@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "67e6d98c-3a93-4d24-840b-ab36245d48d2",
+		"name": "Sample CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14478420"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"sokhour\",\n    \"email\": \"sokhour@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}{{user_context}}",
+							"host": [
+								"{{api_url}}{{user_context}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}{{user_context}}",
+							"host": [
+								"{{api_url}}{{user_context}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FineOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}{{user_context}}",
+							"host": [
+								"{{api_url}}{{user_context}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"sokhour\",\n    \"email\": \"sokhour@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}{{user_context}}",
+							"host": [
+								"{{api_url}}{{user_context}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "user_context",
+			"value": "/users",
+			"type": "string"
+		}
+	]
+}
