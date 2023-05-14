@@ -80,6 +80,7 @@ Here are some common commands for Prisma:
 * `prisma deploy`: This command will deploy your Prisma schema to your database.
 * `prisma playground`: This command will open a web-based playground where you can execute queries against your database.
 * `prisma db push`: This command will create the database table for users and migrate your Prisma schema to the database. 
+* `prisma generate resource <model_name>`: this command is a powerful tool that allows you to interact with your database using a strongly typed API. (will create module, service, and controller)
 
 You can find more information about these commands in the Prisma documentation: https://www.prisma.io/docs/reference/api-reference/command-reference
 ```
