@@ -1,9 +1,12 @@
 import { UserService } from './../user/user.service';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-
 @Injectable()
 export class PostService {
   constructor(
@@ -16,8 +19,23 @@ export class PostService {
     return await this.prisma.post.create({ data: { ...dto } });
   }
 
-  async findAll() {
-    return await this.prisma.post.findMany();
+  async findAll(
+    pageIndex: number,
+    pageSize: number,
+    field: string,
+    direction: string,
+  ) {
+    const fields = Object.keys(await this.prisma.post.findFirst());
+
+    if (!fields.includes(field)) {
+      throw new BadRequestException(`Field ${field} not found`);
+    }
+
+    return await this.prisma.post.findMany({
+      take: pageSize,
+      skip: (pageIndex - 1) * pageSize,
+      orderBy: { [field]: direction },
+    });
   }
 
   async findOne(id: number) {
